@@ -1,6 +1,6 @@
 FROM microsoft/dotnet as build
 WORKDIR /docker
-RUN dotnet new mvc --name HelloMVC --from
+RUN dotnet new mvc --name HelloMVC
 WORKDIR /docker/HelloMVC
 RUN dotnet build
 RUN dotnet publish
