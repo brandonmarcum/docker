@@ -1,0 +1,29 @@
+version: '3.6'
+
+services:
+  angular:
+    image: fredbelotte/angular
+    deploy: 
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+        delay: 10s
+    ports:
+      - '9000:80'
+      networks:
+        - skynet
+  mvc:
+    image: fredbelotte/mvc
+    deploy: 
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+        delay: 10s
+    ports:
+      - '9000:80'
+    networks:
+      - skynet
+
+volumes:
+networks:
+  skynet: 
